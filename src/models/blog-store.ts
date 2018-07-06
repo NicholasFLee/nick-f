@@ -19,7 +19,7 @@ export default class BlogStore {
     }
 
     public getArticles(page: number, perPage: number, completed: (atcs?: Article[], err?: Error) => void) {
-        axios.get('/article?page=' + page + '&perPage=' + perPage)
+        axios.get('/blog/article?page=' + page + '&perPage=' + perPage)
             .then((res) => {
                 const atcs: Article[] = []
                 for (const r of res.data) {
@@ -35,7 +35,7 @@ export default class BlogStore {
 
     public getArticle(id: string, completed: (atc?: Article, err?: Error) => void) {
         let atc: Article
-        axios.get(`/article/${id}`)
+        axios.get(`/blog/article/${id}`)
             .then((res) => {
                 const r = res.data
                 atc = new Article(r.articleID, r.title, r.createDate,
