@@ -20,7 +20,8 @@ export default Vue.extend({
         const atcID = id ? id : ""
         bs.shared().getArticle(atcID, (atc?: Article, err?: Error) => {
             if (err != undefined) {
-                console.error('article id not exist')
+                // console.error('article id not exist')
+                console.error(err)
                 return
             }
             this.article = atc
