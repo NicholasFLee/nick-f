@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Article from './article'
+import Comment from '@/models/comment';
 
 export default class BlogStore {
 
@@ -44,5 +45,10 @@ export default class BlogStore {
             }).catch((err) => {
                 completed(undefined, err)
             })
+    }
+
+    public getComments(id: string, completed: (cmt?: Comment, err?: Error) => void) {
+        let cmt: Comment
+        axios.get(`/blog/comment/${id}`)
     }
 }
