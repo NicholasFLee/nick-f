@@ -1,6 +1,5 @@
 import axios from 'axios'
-import Article from './article'
-import Comment from '@/models/comment';
+import Article, { Comment } from './article'
 
 export default class BlogStore {
 

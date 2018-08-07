@@ -28,3 +28,11 @@ export default class Article {
         this.previewContent = previewContent
     }
 }
+
+export class Comment {
+    public sender: string
+
+    constructor(sender: string) {
+        this.sender = sender
+    }
+}
