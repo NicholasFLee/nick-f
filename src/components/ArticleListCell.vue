@@ -13,7 +13,7 @@ export default Vue.extend({
   props: ['article'],
   data() {
     return {
-      name: ''
+      name: '',
     }
   }
 })

@@ -39,15 +39,10 @@ export default class BlogStore {
             .then((res) => {
                 const r = res.data
                 atc = new Article(r.articleID, r.title, r.createDate,
-                    r.categories, r.content, r.previewContent)
+                    r.categories, r.comments, r.content, r.previewContent)
                 completed(atc, undefined)
             }).catch((err) => {
                 completed(undefined, err)
             })
-    }
-
-    public getComments(id: string, completed: (cmt?: Comment, err?: Error) => void) {
-        let cmt: Comment
-        axios.get(`/blog/comment/${id}`)
     }
 }

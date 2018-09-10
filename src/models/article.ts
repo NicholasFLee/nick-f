@@ -6,6 +6,7 @@ export default class Article {
     // convert to `html` from `markdown`
     public content?: string
     public previewContent?: string
+    public comments: Comment[]
 
     /**
      * Creates an instance of Article.
@@ -17,13 +18,14 @@ export default class Article {
      * @param {string} [previewContent]
      * @memberof Article
      */
-    constructor(articleID: string, title: string, createDate: string, categories: string[],
+    constructor(articleID: string, title: string, createDate: string, categories: string[], comments: Comment[],
                 content?: string, previewContent?: string) {
 
         this.articleID = articleID
         this.title = title
         this.createDate = new Date(createDate)
         this.categories = categories
+        this.comments = comments
         this.content = content
         this.previewContent = previewContent
     }
