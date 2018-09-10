@@ -32,9 +32,30 @@ export default class Article {
 }
 
 export class Comment {
-    public sender: string
+    public commentID: string
+    public content: string
+    public createDate: string
+    public authorName: string
+    public subComments: SubCommnet[]
 
-    constructor(sender: string) {
-        this.sender = sender
+    constructor(commentID: string, content: string, createDate: string,
+                authorName: string, subComment: SubCommnet[]) {
+        this.commentID = commentID
+        this.content = content
+        this.createDate = createDate
+        this.authorName = authorName
+        this.subComments = subComment
+    }
+}
+
+class SubCommnet {
+    public authorName: string
+    public createDate: string
+    public content: string
+
+    constructor(authorName: string, createDate: string, content: string) {
+        this.authorName = authorName
+        this.createDate = createDate
+        this.content = content
     }
 }
