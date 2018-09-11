@@ -48,7 +48,7 @@ export class Comment {
     }
 }
 
-class SubCommnet {
+export class SubCommnet {
     public authorName: string
     public createDate: string
     public content: string

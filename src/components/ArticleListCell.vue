@@ -15,7 +15,7 @@ export default Vue.extend({
     return {
       name: '',
     }
-  }
+  },
 })
 </script>
 

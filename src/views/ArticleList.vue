@@ -21,7 +21,7 @@ export default Vue.extend({
   },
   mounted() {
     bs.shared().getArticles(1, 5, (atcs?: Article[], err?: Error) => {
-      if (err != undefined) {
+      if (err !== undefined) {
         console.error(err)
         return
       }

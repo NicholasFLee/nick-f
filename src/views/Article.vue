@@ -1,6 +1,7 @@
 <template>
 <div>
-    <h1 v-if="article">{{article.content}}</h1>
+    <h1>{{article.title}}</h1>
+    <h1>{{article.content}}</h1>
 </div>    
 </template>
 
@@ -12,21 +13,21 @@ import Article from '@/models/article'
 export default Vue.extend({
     data() {
         return {
-            article: undefined as (Article | undefined)
+            article: undefined as (Article | undefined),
         }
     },
     mounted() {
         const id = this.$route.path.split('/').pop()
-        const atcID = id ? id : ""
+        const atcID = id ? id : ''
         bs.shared().getArticle(atcID, (atc?: Article, err?: Error) => {
-            if (err != undefined) {
+            if (err !== undefined) {
                 // console.error('article id not exist')
                 console.error(err)
                 return
             }
             this.article = atc
         })
-    }
+    },
 })
 </script>
 

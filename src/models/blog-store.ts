@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Article, { Comment } from './article'
+import Article, { Comment, SubCommnet } from './article'
 
 export default class BlogStore {
 
@@ -23,8 +23,18 @@ export default class BlogStore {
             .then((res) => {
                 const atcs: Article[] = []
                 for (const r of res.data) {
+                    const cmts: Comment[] = []
+                    for (const c of r.comments) {
+                        const scmts: SubCommnet[] = []
+                        for (const sc of c.subComments) {
+                            const scmt = new SubCommnet(sc.authorName, sc.createDate, sc.content)
+                            scmts.push(scmt)
+                        }
+                        const cmt = new Comment(c.commentID, c.content, c.createDate, c.authorName, scmts)
+                        cmts.push(cmt)
+                    }
                     const atc = new Article(r.articleID, r.title, r.createDate,
-                                r.categories, r.content, r.previewContent)
+                        r.categories, cmts, r.content, r.previewContent)
                     atcs.push(atc)
                 }
                 completed(atcs, undefined)
