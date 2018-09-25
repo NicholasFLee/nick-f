@@ -55,4 +55,11 @@ export default class BlogStore {
                 completed(undefined, err)
             })
     }
+
+    /**
+     * setComment
+     */
+    public setComment() {
+        
+    }
 }
